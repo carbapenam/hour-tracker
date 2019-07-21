@@ -1,0 +1,40 @@
+body {
+    background-color: #000E33;
+    color: #005FCC;
+    font-family:'Raleway', 'Open Sans', 'Helvetica', sans-serif;
+}
+
+.header {
+    text-align: center;
+    font-size: 30pt;
+}
+
+.dynamic {
+    text-align: center;
+}
+
+.timer {
+    font-size: 36pt;
+}
+
+#focus_button {
+    width: 150px;
+    height: 75px;
+    border-radius: 10%;
+    background-color: #52820D;
+    color:#FFF;
+    border: 0px;
+    font-family: 'Raleway', 'Open Sans', 'Helvetica', sans-serif;
+    font-size: 24px;
+}
+
+#stop_button {
+    width: 150px;
+    height: 75px;
+    border-radius: 10%;
+    background-color: #5C1909;
+    color:#FFF;
+    border: 0px;
+    font-family: 'Raleway', 'Open Sans', 'Helvetica', sans-serif;
+    font-size: 24px;
+}
