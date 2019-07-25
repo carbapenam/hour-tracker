@@ -1,5 +1,3 @@
-- What's the embedding for Raleway font
-
 Time Tracker
 
 # Frontend
@@ -39,8 +37,9 @@ Raleway -> Open Sans -> Helvetica -> Sans Serif
 * Create the collection and following would be the document format
 
 {
-date:
-length: 
+    date_started: String representing date in YYYY-MM-DD
+    time_started: String representing time in HH:MM:SS.mmm
+    time_focused: seconds
 }
 
 # API 
@@ -51,9 +50,7 @@ length:
 
 POST type:
 {
-    type: read, write
-    date_begin:
-    date_end:
-    time_begin:
-    length:
+    date_started: String representing date in YYYY-MM-DD
+    time_started: String representing time in HH:MM:SS.mmm
+    time_focused: seconds
 }
