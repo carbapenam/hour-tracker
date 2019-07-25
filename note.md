@@ -40,7 +40,6 @@ Raleway -> Open Sans -> Helvetica -> Sans Serif
 
 {
 date:
-time_begin:
 length: 
 }
 
