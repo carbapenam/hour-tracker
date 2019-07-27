@@ -5,6 +5,7 @@ require('dotenv').config()
 let express = require('express')
 let path = require('path')
 let parser = require('body-parser')
+let request = require('request')
 
 let port = process.env.port || 80
 let app = express()
@@ -29,16 +30,32 @@ app.listen(port, (err) => {if (err) console.log(err); else console.log("started 
 app.use(express.static("static"))
 app.use(parser.urlencoded({extended: true}))
 
+app.set('views', path.join(__dirname, "views"))
+app.set('view engine', 'hbs')
+
 app.get("/", (req, res) => {res.sendFile(path.join(__dirname, "/static/index.html"))})
 app.get("/review", (req, res) => {res.send('WIP')}) //insert callback
 
+// Until authentication happens, the collection name is just going to be the ip address
 let collection_name = 'test'
 
 app.post("/db", (req, res) => {
+  // return debug information when dev property is passed through
+  if (req.body.hasOwnProperty('dev'))
+  {
+    return res.json(JSON.stringify(req.body))
+  }
+
+  /*
+  let ip = (req.headers['x-forwarded-for'] || '').split(',').pop() || req.connection.remoteAddress 
+  collection_name = ip
+*/
+
   let date_started = req.body.date_started
   let time_started = req.body.time_started
   
   let time_focused = req.body.time_focused
+  let dev = req.body.dev
 
   const col = db.collection(collection_name)
 
@@ -50,7 +67,6 @@ app.post("/db", (req, res) => {
     if (err) {
       res.status(500).send(err)
       return console.log(err)
-
     }
 
     console.log(`inserted ${result.insertedCount} instance of stopwatch data successfully`)
@@ -63,8 +79,11 @@ app.get("/db", (req, res) => {res.json({'message':'hi'})})
 app.get("/db/:date_started", (req, res) => 
 {
   //Select a collection. 
-  //It's fixed right now but it can be user ID 
-  //when this supports authentication
+/*
+  let ip = (req.headers['x-forwarded-for'] || '').split(',').pop()  || req.connection.remoteAddress 
+  collection_name = ip
+*/
+
   let col = db.collection(collection_name)
 
   // Query
