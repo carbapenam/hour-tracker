@@ -55,7 +55,6 @@ app.post("/db", (req, res) => {
   let time_started = req.body.time_started
   
   let time_focused = req.body.time_focused
-  let dev = req.body.dev
 
   const col = db.collection(collection_name)
 
