@@ -24,7 +24,6 @@ body {
     background-color: #52820D;
     color:#FFF;
     border: 0px;
-    font-family: 'Raleway', 'Open Sans', 'Helvetica', sans-serif;
     font-size: 24px;
 }
 
@@ -33,6 +32,17 @@ body {
     height: 75px;
     border-radius: 10%;
     background-color: #5C1909;
+    color:#FFF;
+    border: 0px;
+    font-family: 'Raleway', 'Open Sans', 'Helvetica', sans-serif;
+    font-size: 24px;
+}
+
+#transition_button {
+    width: 150px;
+    height: 75px;
+    border-radius: 10%;
+    background-color: #9C6F00;
     color:#FFF;
     border: 0px;
     font-family: 'Raleway', 'Open Sans', 'Helvetica', sans-serif;

@@ -82,13 +82,14 @@ class Timer
         let xhr = new XMLHttpRequest()
 
         // Open a request to the db api
-        xhr.open("POST", "/db", true) //the last argument determines whether this request is done in async.
+        xhr.open("POST", "/db", true) //The last argument determines whether this request is done as async
 
-        // Set the header. This function can only be called after open() happens
+        // Set the header. 
+        // This function can only be called after open() happens
         xhr.setRequestHeader("Content-Type", "application/json")
 
         // Add a callback for debug
-        if (dev) xhr.addEventListener('readystatechange', function() {if (this.readyState === XMLHttpRequest.DONE) console.log(this.response)})
+        if (dev) xhr.addEventListener('readystatechange', function() {if (this.readyState === XMLHttpRequest.DONE) console.log(this.responseText)})
 
         let d = this.date_started
 
@@ -98,7 +99,7 @@ class Timer
             'time_focused': this.time_focused
         }
 
-        if (dev) {json.dev = ''; console.log(json)}
+        if (dev) {json.dev = '';}
 
         xhr.send(JSON.stringify(json))
     }

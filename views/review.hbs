@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hour Tracker</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class = "header">
+        <h1>Hour Tracker</h1>
+    </div>
+    <div class="dynamic">
+        <div class="timer"><input type="date" name="date" value="2019-07-28"></div>
+        <div class="buttons">
+            <button id="focus_button">Go to date</button>
+            <button id="transition_button">Stopwatch</button>
+        </div>
+        <div class = "review">
+        <ul>
+            {{#each focus_item}}
+                {{time_started}} : {{time_focused}}
+            {{/each}}
+        </ul>
+        </div>
+    </div>
+</body>
+</html>
